@@ -1,0 +1,8 @@
+[submodule "lib/debug"]
+	path = lib/debug
+	url = git@github.com:hazardland/debug.php.git
+	branch = master
+[submodule "lib/core"]
+	path = lib/core
+	url = git@github.com:hazardland/core.php.git
+	branch = master

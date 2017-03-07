@@ -1,0 +1,1 @@
+This folder goes as wwwroot. Place everything here you wish to expose.
