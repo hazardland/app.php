@@ -41,5 +41,6 @@
    debug(Session::get("arrayx")[5]);
     */
 
-   new \App\Controller\Home ();
+   $home = new \App\Controller\Home ();
+   $home->index();
 

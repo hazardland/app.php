@@ -1,7 +1,6 @@
 <?php
 
 	/*
-
 		SERVER
 		CONFIG
 		DATABASE
@@ -28,9 +27,15 @@
 			index.php
 			config.php
 			server.php
+			.htaccess
 		/app
+			route.php
+			/src
+				/Controller
+					Home.php
 			/view
-			/controllers
+				home.php
+
 	*/
 
 	//on what env we are might be defined from outside

@@ -6,8 +6,8 @@
 
     class Home
     {
-        public function __construct()
+        public function index()
         {
-            View::render('test');
+            View::render('home');
         }
     }
