@@ -1,57 +1,19 @@
 <?php
 
-	/*
-		SERVER
-		CONFIG
-		DATABASE
-		LIB
-		APP
-
-		FOLDER -> CONSTANT
-
-		/config -> CONFIG
-			/localhost
-				config.php
-				/database -> DATABASE
-					default.php
-		/lib -> LIB
-			module1
-				src
-					class1.php
-					class2.php
-			module2
-				module.php
-		/public
-			/js
-			/css
-			index.php
-			config.php
-			server.php
-			.htaccess
-		/app
-			route.php
-			/src
-				/Controller
-					Home.php
-			/view
-				home.php
-
-	*/
-
-	//on what env we are might be defined from outside
+	//on what environment we are
+	//might be defined from outside
 	if (file_exists(__DIR__.'/server.php'))
 	{
 		include __DIR__.'/server.php';
 	}
-	//define environment name (not hostname!)
+	//define define environment name (not hostname!)
 	if (!defined('SERVER'))
 	{
 		define('SERVER','localhost');
 	}
+
 	//define config folder
 	define ('CONFIG',dirname(__DIR__).'/config');
-	//define database include path
-	define ('DATABASE',CONFIG.'/'.SERVER.'/database');
 	//define common lib folder
 	define ('LIB',dirname(__DIR__).'/lib');
 	//define app non common lib folder
@@ -91,18 +53,16 @@
 		include LIB.'/debug/debug.php';
 	}
 
-	//start it here ?
-	//no we will use Database pattern later
-	//\Core\Session::init ();
-
-	//+
-	ob_start ();
-
 	if (file_exists(CONFIG.SERVER.'/config.php'))
 	{
 		include CONFIG.SERVER.'/config.php';
 	}
 
-	\Core\Database::setPath(DATABASE);
+	\Core\Database::setPath(CONFIG.'/database/');
 	\Core\View::setPath(APP.'/view');
-	//Databse::setDefaut('myNotDefaultDefault');
+
+	//Open session here if you are not sure
+	//That you can hold your echoes before headers
+	//\Core\Session::open ();
+
+	ob_start ();
