@@ -1,5 +1,9 @@
 <?php
 
+	/*
+		CHOOSE APP ENV
+	*/
+
 	//on what environment we are
 	//might be defined from outside
 	if (file_exists(__DIR__.'/server.php'))
@@ -12,22 +16,36 @@
 		define('SERVER','localhost');
 	}
 
+	/*
+		DEFINE PATH
+	*/
 	//define config folder
-	define ('CONFIG',dirname(__DIR__).'/config');
+	define ('CONFIG',dirname(dirname(__DIR__)).'/config');
 	//define common lib folder
-	define ('LIB',dirname(__DIR__).'/lib');
+	define ('LIB',dirname(dirname(__DIR__)).'/lib');
 	//define app non common lib folder
-	define ('APP',dirname(__DIR__).'/app');
+	define ('APP',dirname(dirname(__DIR__)).'/app');
 
-	//if you prefer composer
-	if (file_exists(dirname(__DIR__).'/vendor/autoload.php'))
+
+	/*
+		PREPARE ENV
+	*/
+
+	//if you prefer composer include /vendor/autoload.php
+	//commenting composer autoloader include will not break things
+	if (file_exists(dirname(dirname(__DIR__)).'/vendor/autoload.php'))
 	{
-    	require dirname(__DIR__).'/vendor/autoload.php';
+    	require dirname(dirname(__DIR__)).'/vendor/autoload.php';
 	}
 
-	//psr-4 autoloader from common and project folder
-	//if you just want to do without composer in veteran mode
-	//project folder has priority while searching class file
+	/*
+		PSR-4 autoloader from APP and LIB folders:
+
+		\App\Namespace2\Class1 => APP.src\Namespace2\Class1.php
+		\OtherNamespace1\Namespace2\Class1 => LIB.othernamespace1\src\Namespace2\Class1.php
+
+		This autoloader works independetly from composer autoloader
+	*/
 	spl_autoload_register(function ($class)
 	{
 	    $file = str_replace ('\\', '/', ltrim ($class, '\\')).'.php';
@@ -36,7 +54,6 @@
 	    	$module = strtolower(substr($file,0,strpos($file,'/')));
 	    	$path = substr($file,strpos($file,'/')+1);
 	    }
-	    //debug (APP.'src/'.$path,'module '.($module==='app' && defined('APP') && file_exists(APP.'src/'.$path)));
 	    if (isset($module) && $module==='app' && defined('APP') && file_exists(APP.'/src/'.$path))
 	    {
 			require APP.'/src/'.$path;
@@ -53,16 +70,16 @@
 		include LIB.'/debug/debug.php';
 	}
 
-	if (file_exists(CONFIG.SERVER.'/config.php'))
+	if (file_exists(CONFIG.'/'.SERVER.'/config.php'))
 	{
-		include CONFIG.SERVER.'/config.php';
+		include CONFIG.'/'.SERVER.'/config.php';
 	}
 
-	\Core\Database::setPath(CONFIG.'/database/');
+	\Core\Database::setPath(CONFIG.'/'.SERVER.'/database');
 	\Core\View::setPath(APP.'/view');
 
 	//Open session here if you are not sure
 	//That you can hold your echoes before headers
-	//\Core\Session::open ();
 
+	\Core\Session::open ();
 	ob_start ();
