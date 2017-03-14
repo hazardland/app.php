@@ -6,8 +6,8 @@
 
     class Home
     {
-        public function index()
+        public function index ($message)
         {
-            View::render('home');
+            View::render('home',['message'=>$message]);
         }
     }

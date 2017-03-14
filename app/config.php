@@ -1,6 +1,13 @@
 <?php
 
 	/*
+		used constants:
+		SERVER - env name
+		CONFIG,LIB,APP - paths
+
+	*/
+
+	/*
 		CHOOSE APP ENV
 	*/
 
@@ -18,13 +25,14 @@
 
 	/*
 		DEFINE PATH
+		(dirname(__dir__) returns one level up folder)
 	*/
 	//define config folder
-	define ('CONFIG',dirname(dirname(__DIR__)).'/config');
+	define ('CONFIG',dirname(__dir__).'/config');
 	//define common lib folder
-	define ('LIB',dirname(dirname(__DIR__)).'/lib');
+	define ('LIB',dirname(__dir__).'/lib');
 	//define app non common lib folder
-	define ('APP',dirname(dirname(__DIR__)).'/app');
+	define ('APP',dirname(__dir__).'/app');
 
 
 	/*
@@ -33,9 +41,9 @@
 
 	//if you prefer composer include /vendor/autoload.php
 	//commenting composer autoloader include will not break things
-	if (file_exists(dirname(dirname(__DIR__)).'/vendor/autoload.php'))
+	if (file_exists(dirname(__dir__).'/vendor/autoload.php'))
 	{
-    	require dirname(dirname(__DIR__)).'/vendor/autoload.php';
+    	require dirname(__dir__).'/vendor/autoload.php';
 	}
 
 	/*
@@ -76,7 +84,7 @@
 	}
 
 	\Core\Database::setPath(CONFIG.'/'.SERVER.'/database');
-	\Core\View::setPath(APP.'/view');
+	\Core\View::setPath(APP.'/views');
 
 	//Open session here if you are not sure
 	//That you can hold your echoes before headers

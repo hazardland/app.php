@@ -1,6 +1,8 @@
 <?php
 
-    include __DIR__.'/config.php';
+    include dirname(__DIR__).'/config.php';
+
+    use \Core;
 
     error_reporting(E_ALL);
 
@@ -41,6 +43,8 @@
    debug(Session::get("arrayx")[5]);
     */
 
+   App::addLocale('en');
+
    $home = new \App\Controller\Home ();
-   $home->index();
+   $home->index('brother');
 
