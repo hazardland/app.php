@@ -5,14 +5,15 @@ This folder contains new simple app directory structure ready to copy and run
     /src - contains everything under ```\App``` namespace ```\App\Controller\Home``` => ```./app/src/Controller/Home.php```
     /public - contains what is exposed in wwwroot
         index.php - app entry point
-        config.php - setups your project
-        routes.php - contains app routes
     /views - contains app views
     /config - contains app specific config
         /localhost - contains 'locahlost' env config
-            config.php
+            config.php - included by app.php using ./config/SERVER/config.php
         /env1 - contains some ```env1``` config
             config.php
+    app.php - setups your project env, included by index.php
+    server.php - sets env const SERVER, included by app.php
+    routes.php - contains app routes
 
 When cloning use ```--recursive``` option to clone with all submodules
 ```
