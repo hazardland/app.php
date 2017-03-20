@@ -1,10 +1,6 @@
-<?php
+    <?php
 
     include dirname(__DIR__).'/config.php';
-
-    use \Core;
-
-    error_reporting(E_ALL);
 
     //debug ($_REQUEST, '$_REQUEST');
     //debug ($_SERVER, '$_SERVER');
@@ -34,17 +30,16 @@
     }
     debug(Cache::get("key1"));
 
-    use \App\Database;
-    $result = Database::get()->query("SELECT 1");
-   use \App\Session;
-   $array[1]='it works';
-   Session::set("array",$array);
-   debug(Session::get("array")[1]);
-   debug(Session::get("arrayx")[5]);
+    use \App\Session;
+    $array[1]='it works';
+    Session::set("array",$array);
+    debug(Session::get("array")[1]);
+    debug(Session::get("arrayx")[5]);
     */
 
-   App::addLocale('en');
+    $result = Database::get()->query("SELECT 1");
+    App::addLocale('en');
 
-   $home = new \App\Controller\Home ();
-   $home->index('brother');
+    $home = new \App\Controller\Home ();
+    $home->index('brother');
 

@@ -1,6 +1,6 @@
 {
     "require": {
         "hazardland/debug": "^1.0",
-        "hazardland/app": "^0.0.1"
+        "hazardland/core": "^0.0.1"
     }
 }

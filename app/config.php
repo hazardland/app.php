@@ -1,13 +1,12 @@
 <?php
 
+	error_reporting(E_ALL);
+
 	/*
 		used constants:
 		SERVER - env name
 		CONFIG,LIB,APP - paths
 
-	*/
-
-	/*
 		CHOOSE APP ENV
 	*/
 
@@ -27,13 +26,21 @@
 		DEFINE PATH
 		(dirname(__dir__) returns one level up folder)
 	*/
-	//define config folder
-	define ('CONFIG',dirname(__dir__).'/config');
-	//define common lib folder
-	define ('LIB',dirname(__dir__).'/lib');
-	//define app non common lib folder
-	define ('APP',dirname(__dir__).'/app');
-
+	//Define common config folder
+	if (!defined('CONFIG'))
+	{
+		define ('CONFIG',dirname(__dir__).'/config');
+	}
+	//Define common lib folder
+	if (!defined('LIB'))
+	{
+		define ('LIB',dirname(__dir__).'/lib');
+	}
+	//Define app base folder
+	if (!defined('APP'))
+	{
+		define ('APP',dirname(__dir__).'/app');
+	}
 
 	/*
 		PREPARE ENV
@@ -72,22 +79,38 @@
 	    }
 	});
 
+	class_alias('\Core\App', 'App');
+	class_alias('\Core\Database', 'Database');
+	class_alias('\Core\Session', 'Session');
+	class_alias('\Core\Cache', 'Cache');
+	class_alias('\Core\Route', 'Route');
+	class_alias('\Core\View', 'View');
+	class_alias('\Core\Input', 'Input');
+	class_alias('\Core\Method', 'Method');
+
 	//this is very cool variable visaulizer module
 	if (file_exists(LIB.'/debug/debug.php'))
 	{
 		include LIB.'/debug/debug.php';
 	}
 
+	// Load common config if it exists
 	if (file_exists(CONFIG.'/'.SERVER.'/config.php'))
 	{
 		include CONFIG.'/'.SERVER.'/config.php';
 	}
 
-	\Core\Database::setPath(CONFIG.'/'.SERVER.'/database');
-	\Core\View::setPath(APP.'/views');
+	// Load app config if it exists
+	if (file_exists(APP.'/config/'.SERVER.'/config.php'))
+	{
+		include APP.'/config/'.SERVER.'/config.php';
+	}
+
+	//Set locale
+	//App::setLocale('en');
 
 	//Open session here if you are not sure
 	//That you can hold your echoes before headers
 
-	\Core\Session::open ();
+	Session::open ();
 	ob_start ();

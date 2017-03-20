@@ -1,3 +1,5 @@
+```const LIB``` specifies to this folder
+
 Common modules go here
 This folder can be placed anywhere on server and can be common for many projects
 
@@ -10,4 +12,6 @@ Path: namespace1\src\Namespace2\Class1.php
 Where first namespace name is translated to lower case
 Then follows src
 Then follows case sencetive names of classes and namespaces
-Do not like it? Go change php-fig community standadts for psr-4 module
+Do not like it? Go change php-fig community standadts for psr-4 module or change autoloader in ./app/config.php
+
+This folder can be moved in app folder if you manually define LIB constant

@@ -1,9 +1,18 @@
 This folder contains new simple app directory structure ready to copy and run
 
-/lib - contains common psr-4 modules
+/lib - contains common psr-4 autoloadable modules ```\Namespace1\Namespace2\Class1``` => ```./lib/namespace1/src/Namespace2/Class1.php```
 /app - contains everything under \App namespace in src folder + app resource
-/public - contains what is exposed in wwwroot
-/config - contains environment specific config files (development,production)
+    /src - contains everything under ```\App``` namespace ```\App\Controller\Home``` => ```./app/src/Controller/Home.php```
+    /public - contains what is exposed in wwwroot
+        index.php - app entry point
+        config.php - setups your project
+        routes.php - contains app routes
+    /views - contains app views
+    /config - contains app specific config
+        /localhost - contains 'locahlost' env config
+            config.php
+        /env1 - contains some ```env1``` config
+            config.php
 
 When cloning use ```--recursive``` option to clone with all submodules
 ```
