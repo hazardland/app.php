@@ -22,3 +22,15 @@ When cloning use ```--recursive``` option to clone with all submodules
 git clone git@github.com:hazardland/app.php.git ./app --recursive
 ```
 But then you will need to ```checkout master``` branch still in every submodule for the first time.
+
+In case of multi app solution you can have common config alongside app configs something like this:
+```php
+    /config
+    /lib
+    /app1
+        /config
+    /app2
+        /config
+    /app3
+        /config
+```
