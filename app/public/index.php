@@ -1,15 +1,16 @@
     <?php
 
-    include dirname(__DIR__).'/config.php';
+    //const APP = '/var/www/site.com';
+    //const LIB = '/var/www/lib';
+
+    include dirname(__DIR__).'/app.php';
 
     //debug ($_REQUEST, '$_REQUEST');
     //debug ($_SERVER, '$_SERVER');
 
-    //use \App\Route;
     //Route::add ('blog/{id}-[*]');
 
     /*
-    use \App\App;
     App::addLocale ('en');
     App::addLocale ('ge');
     if (!isset($_SESSION['locale']))
@@ -18,7 +19,6 @@
     }
     debug (App::getLocale());
 
-    use \App\Cache;
     if (!Cache::exists("key1"))
     {
         Cache::set ("key1","value");
@@ -30,7 +30,6 @@
     }
     debug(Cache::get("key1"));
 
-    use \App\Session;
     $array[1]='it works';
     Session::set("array",$array);
     debug(Session::get("array")[1]);

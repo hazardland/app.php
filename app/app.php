@@ -24,22 +24,22 @@
 
 	/*
 		DEFINE PATH
-		(dirname(__dir__) returns one level up folder)
+		(dirname(__DIR__) returns one level up folder)
 	*/
 	//Define common config folder
 	if (!defined('CONFIG'))
 	{
-		define ('CONFIG',dirname(__dir__).'/config');
+		define ('CONFIG',dirname(__DIR__).'/config');
 	}
 	//Define common lib folder
 	if (!defined('LIB'))
 	{
-		define ('LIB',dirname(__dir__).'/lib');
+		define ('LIB',dirname(__DIR__).'/lib');
 	}
 	//Define app base folder
 	if (!defined('APP'))
 	{
-		define ('APP',dirname(__dir__).'/app');
+		define ('APP',__DIR__);
 	}
 
 	/*
