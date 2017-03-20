@@ -1,5 +1,6 @@
 This folder contains new simple app directory structure ready to copy and run
 
+```
 /lib - contains common psr-4 autoloadable modules \Namespace1\Namespace2\Class1 => ./lib/namespace1/src/Namespace2/Class1.php
 /app - contains everything under \App namespace in src folder + app resource
     /src - contains everything under \App namespace \App\Controller\Home => ./app/src/Controller/Home.php
@@ -14,7 +15,7 @@ This folder contains new simple app directory structure ready to copy and run
     app.php - setups your project env, included by index.php
     server.php - sets env const SERVER, included by app.php
     routes.php - contains app routes
-
+```
 When cloning use ```--recursive``` option to clone with all submodules
 ```
 git clone git@github.com:hazardland/app.php.git ./app --recursive
