@@ -114,3 +114,8 @@
 
 	Session::open ();
 	ob_start ();
+
+	if (file_exists(APP.'/routes.php'))
+	{
+		include APP.'/routes.php';
+	}
