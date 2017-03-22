@@ -119,3 +119,5 @@
 	{
 		include APP.'/routes.php';
 	}
+
+	App::run (isset($_REQUEST['query'])?$_REQUEST['query']:null);

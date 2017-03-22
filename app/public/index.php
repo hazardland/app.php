@@ -4,6 +4,12 @@
     //const LIB = '/var/www/lib';
 
     include dirname(__DIR__).'/app.php';
+    //debug (Route::$actions);
+    //debug ($_REQUEST['query']);
+
+    //debug (Route::match('home/1/00.001/hazardland@gmail.com'),'RESULT');
+    //debug (Route::match('home/1/00.001/hazardland@gmail.com'),'RESULT');
+    //debug(Route::match('games/casino-2'));
 
     //debug ($_REQUEST, '$_REQUEST');
     //debug ($_SERVER, '$_SERVER');
@@ -39,6 +45,8 @@
     $result = Database::get()->query("SELECT 1");
     App::addLocale('en');
 
+    /*
     $home = new \App\Controller\Home ();
     $home->index('brother');
+    */
 
