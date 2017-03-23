@@ -19,3 +19,5 @@
 
     App::addLocale('en', true);
     App::addLocale('fr');
+    App::addLocale('ge');
+

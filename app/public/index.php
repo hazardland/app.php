@@ -4,6 +4,8 @@
     //const LIB = '/var/www/lib';
 
     include dirname(__DIR__).'/app.php';
+
+    //debug (App::getPath());
     //debug (Route::$actions);
     //debug ($_REQUEST['query']);
 

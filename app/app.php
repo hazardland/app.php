@@ -83,10 +83,12 @@
 	class_alias('\Core\Database', 'Database');
 	class_alias('\Core\Session', 'Session');
 	class_alias('\Core\Cache', 'Cache');
-	class_alias('\Core\Route', 'Route');
 	class_alias('\Core\View', 'View');
 	class_alias('\Core\Input', 'Input');
 	class_alias('\Core\Method', 'Method');
+	class_alias('\Core\Route', 'Route');
+	class_alias('\Core\Action', 'Action');
+	class_alias('\Core\Request', 'Request');
 
 	//this is very cool variable visaulizer module
 	if (file_exists(LIB.'/debug/debug.php'))
@@ -120,4 +122,4 @@
 		include APP.'/routes.php';
 	}
 
-	App::run (isset($_REQUEST['query'])?$_REQUEST['query']:null);
+	App::run (new Request(isset($_REQUEST['query'])?$_REQUEST['query']:null, $_SERVER['REQUEST_METHOD']));
