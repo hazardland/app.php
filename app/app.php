@@ -114,7 +114,11 @@
 	//Open session here if you are not sure
 	//That you can hold your echoes before headers
 
-	Session::open ();
+	if (file_exists(APP.'/before.php'))
+	{
+		include APP.'/before.php';
+	}
+
 	ob_start ();
 
 	if (file_exists(APP.'/routes.php'))
@@ -123,3 +127,8 @@
 	}
 
 	App::run (new Request(isset($_REQUEST['query'])?$_REQUEST['query']:null, $_SERVER['REQUEST_METHOD']));
+
+	if (file_exists(APP.'/after.php'))
+	{
+		include APP.'/after.php';
+	}
