@@ -1,8 +1,10 @@
-This folder contains new simple app directory structure ready to copy and run
+This folder contains new simple app directory structure ready to copy and run. This app uses framework https://github.com/hazardland/core.php
 
 ```php
 /lib #contains common psr-4 autoloadable modules
      #\Namespace1\Namespace2\Class1 => ./lib/namespace1/src/Namespace2/Class1.php
+    /core
+        #Framework module - https://github.com/hazardland/core.php
 /app #contains everything under \App namespace in src folder + app resource
     /src #contains everything under \App namespace \App\Controller\Home => ./app/src/Controller/Home.php
     /public #contains what is exposed in wwwroot
@@ -16,6 +18,8 @@ This folder contains new simple app directory structure ready to copy and run
     app.php #setups your project env, included by index.php
     server.php #sets env const SERVER, included by app.php
     routes.php #contains app routes
+    before.php #contains code loaded before app run
+    after.php #contains code to be executed after app run
 ```
 When cloning use ```--recursive``` option to clone with all submodules
 ```
@@ -25,12 +29,21 @@ But then you will need to ```checkout master``` branch still in every submodule 
 
 In case of multi app solution you can have common config for all apps alongside app private configs. Something like this:
 ```php
-    /config
+    /config #common config
     /lib
     /app1
-        /config
+        /config #local config
+        /public
+        /views
+        /src
     /app2
-        /config
+        /config #local config
+        /public
+        /views
+        /src
     /app3
-        /config
+        /config #local config
+        /public
+        /views
+        /src
 ```
