@@ -16,8 +16,3 @@
     {
         Cache::init(new \Core\Cache\Driver\APC());
     }
-
-    App::addLocale('en', true);
-    App::addLocale('fr');
-    App::addLocale('ge');
-
