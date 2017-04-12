@@ -7,3 +7,6 @@
     App::addLocale('ge');
 
     Session::open ();
+
+    Session::setPrefix('myApp');
+    Cache::setPrefix('myApp');
