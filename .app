@@ -1,3 +1,3 @@
-lib/core
-lib/debug
-/
+lib/core:master
+lib/debug:master
+/:master
