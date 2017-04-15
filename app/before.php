@@ -8,5 +8,5 @@
 
     Session::open ();
 
-    Session::setPrefix('myApp');
-    Cache::setPrefix('myApp');
+    //Session::setPrefix('myApp');
+    //Cache::setPrefix('myApp');

@@ -119,12 +119,12 @@
 		include APP.'/before.php';
 	}
 
-	ob_start ();
-
 	if (file_exists(APP.'/routes.php'))
 	{
 		include APP.'/routes.php';
 	}
+
+	ob_start ();
 
 	App::run (new Request(isset($_REQUEST['query'])?$_REQUEST['query']:null, $_SERVER['REQUEST_METHOD']));
 
