@@ -82,6 +82,7 @@
 	class_alias('\Core\App', 'App');
 	class_alias('\Core\Database', 'Database');
 	class_alias('\Core\Session', 'Session');
+	class_alias('\Core\Cookie', 'Cookie');
 	class_alias('\Core\Cache', 'Cache');
 	class_alias('\Core\View', 'View');
 	class_alias('\Core\Input', 'Input');
@@ -117,6 +118,11 @@
 	if (file_exists(APP.'/before.php'))
 	{
 		include APP.'/before.php';
+	}
+
+	if (file_exists(APP.'/filters.php'))
+	{
+		include APP.'/filters.php';
 	}
 
 	if (file_exists(APP.'/routes.php'))
