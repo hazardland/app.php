@@ -2,12 +2,10 @@
 
     namespace App\Controller;
 
-    use \Core\View;
-
     class Home
     {
-        public function index ($message)
+        public function index ()
         {
-            View::render('home',['message'=>$message]);
+            \View::render('home');
         }
     }

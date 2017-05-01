@@ -1,5 +1,10 @@
 This folder contains new simple app directory structure ready to copy and run. This app uses framework https://github.com/hazardland/core.php
 
+Do not forget to pull/download submodules otherwise /lib/core folder will be just empty. The way I prefer cloning is:
+```
+git clone git@github.com:hazardland/app.php.git ./app --recursive
+```
+
 ```php
 /lib #contains common psr-4 autoloadable modules
      #\Namespace1\Namespace2\Class1 => ./lib/namespace1/src/Namespace2/Class1.php
