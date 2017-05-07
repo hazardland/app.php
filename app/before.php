@@ -8,5 +8,8 @@
 
     Session::open ();
 
+    Auth::addDriver (new \Core\Auth\Driver\Basic());
+    Auth::setModel (new \Core\Auth\Model\Table());
+
     //Session::setPrefix('myApp');
     //Cache::setPrefix('myApp');
