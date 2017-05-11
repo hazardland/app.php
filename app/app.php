@@ -90,6 +90,7 @@
 	class_alias('\Core\Route', 'Route');
 	class_alias('\Core\Action', 'Action');
 	class_alias('\Core\Request', 'Request');
+	class_alias('\Core\Auth', 'Auth');
 
 	//this is very cool variable visaulizer module
 	if (file_exists(LIB.'/debug/debug.php'))
