@@ -6,3 +6,7 @@
 	path = lib/core
 	url = git@github.com:hazardland/core.php.git
 	branch = master
+[submodule "lib/user"]
+	path = lib/core
+	url = git@github.com:hazardland/user.php.git
+	branch = master
