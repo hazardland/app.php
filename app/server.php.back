@@ -1,5 +1,5 @@
 <?php
-
+ 
     /*
         This file is included before everything.
         After defining SERVER app.php will include
