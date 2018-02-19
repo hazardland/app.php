@@ -4,4 +4,5 @@ composer.lock
 /.idea
 /.nbproject
 /app/server.php
+!/app/server.php.back
 **/error_log
